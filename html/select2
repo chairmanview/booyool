@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <meta charset="UTF-8">
+    <title>支付平台</title>
+</head>
+<body>
+    <select id="select" style="width: 500px;"><option value ="volvo">Volvo</option>
+      <option value ="saab">Saab33333333</option>
+      <option value="opel">Opel</option>
+      <option value="audi">Audi</option>
+    </select>
+    
+
+    <div class="s2-example">
+    <p>
+      <select class="select2tags form-control select2-hidden-accessible" multiple="" tabindex="-1" aria-hidden="true" style="    width: 500px;">
+        <option value="orange" selected="selected">orange</option>
+        <option value="white">white</option>
+        <option value="purple" selected="selected">purple</option>
+      <option value="red">red</option>
+      <option value="blue">blue</option>
+      <option value="green" selected="selected">green</option>
+      <option value="rr" data-select2-tag="true">rr</option>
+      <option value="rrr" data-select2-tag="true">rrr</option>
+      </select>
+    </p>
+  </div>
+
+  <script type="text/javascript">
+        $('select').select2(); //普通的select2
+
+        $(".select2tags").select2({ //可录入select2
+          tags: true   
+        })
+        
+        var t = $(".select2tags").select2("data");  //获得值
+        alert(JSON.stringify(t));
+
+        $(".select2tags").on("change", function(e) {  //change事件 其他事件及参数参照文档 http://select2.github.io/select2/
+          console.log("change "+JSON.stringify($(".select2tags").select2("data"))); 
+        })
+    </script>
+</body>
+</html>
